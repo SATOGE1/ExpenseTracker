@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "c016abb0-1453-4e37-853c-b2803b19e7ae",
+		"name": "Expense tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4681319"
+	},
+	"item": [
+		{
+			"name": "expenses",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"dasdsadsa\",\r\n    \"amount\": \"1840\",\r\n    \"date\": \"2024-05-18T16:01:07.734+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "header",
+									"value": "{\r\n    \"accessToken\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZXNobyIsImlhdCI6MTcxNzMyMTA1OSwiZXhwIjoxNzE3MzIxMTI5fQ.8maZa1Wzn2615507LjXIeumAbd0WQLtyU0ar1D9-wph0zfI2PL4nmvPT452i9Z3bqWhxdE-uP4E-02GKt3R_Sg\"\r\n}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "algorithm",
+									"value": "HS512",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All By Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/categories/5/expenses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories",
+								"5",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"created\",\r\n    \"amount\": \"1840\",\r\n    \"date\": \"2024-05-18T16:01:07.734+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expenses",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"created\",\r\n    \"amount\": \"1840\",\r\n    \"date\": \"2024-05-18T16:01:07.734+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"expenses",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"eating out\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjkzMSwiZXhwIjoxNzE3MzI3NjMxfQ.MPcioRyW28PrOuAs3QDfI2vnveQ55IoX9gEjocepHqoaywNytcyxaJropcqOv_BuZIO7IaC55NdTsPIsubMkqw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/categories/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"eating out\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/categories/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3NobyIsImlhdCI6MTcxNzMyNjczNiwiZXhwIjoxNzE3MzI3NDM2fQ.XlzFwOhidgNHq5eUiBuXF6SM4QSaYvyXOUCuZeWEY-wV1Ea6-eBeuIqSPEXRQS4KkHDgvWWcA3k1zV-qOr3b2g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"created\",\r\n    \"amount\": \"1840\",\r\n    \"date\": \"2024-05-18T16:01:07.734+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/categories/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"gosho\",\r\n    \"password\": \"0000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"gosho\",\r\n    \"password\": \"0000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
