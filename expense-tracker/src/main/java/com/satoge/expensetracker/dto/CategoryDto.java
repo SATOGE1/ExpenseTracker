@@ -7,4 +7,6 @@ public class CategoryDto {
     private int id;
 
     private String title;
+
+    private double total = 0;
 }

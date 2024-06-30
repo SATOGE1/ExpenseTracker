@@ -5,9 +5,9 @@ import com.satoge.expensetracker.dto.ExpenseDto;
 import java.util.List;
 
 public interface ExpenseService {
-    ExpenseDto createExpense(ExpenseDto expenseDto);
+    ExpenseDto createExpense(ExpenseDto expenseDto, String username);
 
-    List<ExpenseDto> getExpenses();
+    List<ExpenseDto> getExpenses(String username);
 
     List<ExpenseDto> getExpensesByCategoryId(int categoryId);
 

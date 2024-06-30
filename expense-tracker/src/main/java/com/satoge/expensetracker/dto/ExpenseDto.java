@@ -11,6 +11,7 @@ public class ExpenseDto {
     private String description;
     private double amount;
     private int categoryId;
+    private int userId;
 
     @Override
     public String toString() {
@@ -20,6 +21,7 @@ public class ExpenseDto {
             ", description='" + description + '\'' +
             ", amount=" + amount +
             ", categoryId=" + categoryId +
+            ", userId=" + userId +
             '}';
     }
 }

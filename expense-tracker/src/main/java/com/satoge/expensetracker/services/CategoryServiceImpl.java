@@ -1,20 +1,29 @@
 package com.satoge.expensetracker.services;
 
 import com.satoge.expensetracker.dto.CategoryDto;
+import com.satoge.expensetracker.dto.ExpenseDto;
 import com.satoge.expensetracker.exceptions.CategoryNotFoundException;
+import com.satoge.expensetracker.exceptions.UserNotFoundException;
 import com.satoge.expensetracker.models.Category;
+import com.satoge.expensetracker.models.Expense;
+import com.satoge.expensetracker.models.User;
 import com.satoge.expensetracker.repositories.CategoryRepository;
+import com.satoge.expensetracker.repositories.ExpenseRepository;
+import com.satoge.expensetracker.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
-    public CategoryServiceImpl(CategoryRepository categoryRepository) {
+    public CategoryServiceImpl(ExpenseRepository expenseRepository, CategoryRepository categoryRepository, UserRepository userRepository) {
+        this.expenseRepository = expenseRepository;
         this.categoryRepository = categoryRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -25,10 +34,27 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<CategoryDto> getCategories() {
+    public List<CategoryDto> getCategories(String username) {
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new UserNotFoundException("User not found exception"));
+        List<Expense> expenses = expenseRepository.findByUserId(user.getId());
+
         List<Category> categories = categoryRepository.findAll();
 
-        return categories.stream().map(category -> mapToDto(category)).collect(Collectors.toList());
+        List<CategoryDto> categoriesWithTotals = new ArrayList<>();
+
+        for (Category category : categories) {
+            CategoryDto categoryDto = mapToDto(category);
+
+            double total = expenses.stream()
+                .filter(expense -> expense.getCategory().equals(category))
+                .mapToDouble(Expense::getAmount)
+                .sum();
+
+            categoryDto.setTotal(total);
+            categoriesWithTotals.add(categoryDto);
+        }
+
+        return categoriesWithTotals;
     }
 
     @Override
@@ -73,4 +99,6 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     private CategoryRepository categoryRepository;
+    private ExpenseRepository expenseRepository;
+    private UserRepository userRepository;
 }

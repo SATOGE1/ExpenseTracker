@@ -7,7 +7,7 @@ import java.util.List;
 public interface CategoryService {
     CategoryDto createCategory(CategoryDto expenseDto);
 
-    List<CategoryDto> getCategories();
+    List<CategoryDto> getCategories(String username);
 
     CategoryDto getCategoryById(int id);
 
